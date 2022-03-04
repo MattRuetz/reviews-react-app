@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Header = ({ text, bgColor, textColor }) => {
     const headerStyle = {
         backgroundColor: bgColor,
@@ -11,6 +13,19 @@ const Header = ({ text, bgColor, textColor }) => {
             </div>
         </header>
     );
+};
+
+Header.defaultProps = {
+    text: 'Feedback UI',
+    bgColor: 'rgba(0,0,0,0.4)',
+    textColor: '#ff6a95',
+};
+
+// Every react component had a propTypes object
+Header.propTypes = {
+    text: PropTypes.string,
+    bgColor: PropTypes.string,
+    textColor: PropTypes.string,
 };
 
 export default Header;

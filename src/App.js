@@ -19,7 +19,6 @@ const App = () => {
     };
 
     const addFeedback = (newFeedback) => {
-        //TODO
         newFeedback.id = uuidv4();
         setFeedback([newFeedback, ...feedback]);
     };

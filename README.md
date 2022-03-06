@@ -9,7 +9,7 @@ First install all Node modules required for this project. CD into the cloned dir
 
 The json-server package is used to implement a mock server and database. To run this test development build, run:
 ### `npm run dev`
-Now navigate to `localhost:3000` to test the app.
+Now navigate to [http://localhost:3000](http://localhost:3000) to test the app.
 This also spins up a server on localhost:5000 to host your mock database at localhost:5000/feedback.
 
 # Getting Started with Create React App

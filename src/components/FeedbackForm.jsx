@@ -42,7 +42,6 @@ const FeedbackForm = ({ handleAdd }) => {
             <form onSubmit={handleSubmit}>
                 <h2>How would you rate the service you recieved?</h2>
                 <RatingSelect select={(rating) => setRating(rating)} />
-                {/* {Rating select component goes here .... TODO} */}
                 <div className="input-group">
                     <input
                         type="text"

@@ -1,19 +1,19 @@
-# Reviews User Interface React App
+# 💯 Reviews User Interface React App 💯
 
 This is a simple project that shows user reviews in a styled UI, and allows the user to add, delete, or edit reviews in the list.
 
 ## Running with Mock Backend
 
 First install all Node modules required for this project. CD into the cloned directory and run:
-### `npm install`
+### 📦 `npm install`
 
 The json-server package is used to implement a mock server and database. To run this test development build, run:
-### `npm run dev`
+### 🚀 `npm run dev`
 Now navigate to [http://localhost:3000](http://localhost:3000) to test the app.
 
 NOTE: _This also spins up a server on [http://localhost:5000](http://localhost:5000) to host your mock database at [http://localhost:5000/feedback](http://localhost:5000/feedback)._
 
-# Getting Started with Create React App
+# ⚛️ Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

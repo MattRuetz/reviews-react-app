@@ -51,14 +51,21 @@ export const FeedbackProvider = ({ children }) => {
         });
     };
 
+    const updateFeedback = (id, updatedItem) => {
+        setFeedback(
+            feedback.map((item) => (item.id === id ? updatedItem : item))
+        );
+    };
+
     return (
         <FeedbackContext.Provider
             value={{
                 feedback,
+                feedbackEdit,
                 deleteFeedback,
                 addFeedback,
-                editFeedback, //
-                feedbackEdit,
+                editFeedback,
+                updateFeedback,
             }}
         >
             {children}

@@ -8,8 +8,6 @@ import AboutBtnLink from './components/AboutBtnLink';
 import { FeedbackProvider } from './context/FeedbackContext';
 
 const App = () => {
-    // Create state
-
     return (
         <FeedbackProvider>
             <Router>

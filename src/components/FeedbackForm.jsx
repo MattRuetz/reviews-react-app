@@ -1,11 +1,11 @@
 import RatingSelect from './RatingSelect';
-
 import { useContext, useState, useEffect } from 'react';
 import Card from './shared/Card';
 import Button from './shared/Button';
 import FeedbackContext from '../context/FeedbackContext';
 
 const FeedbackForm = () => {
+    // Local states for Form element
     const [text, setText] = useState('');
     const [rating, setRating] = useState('');
     const [btnDisabled, setBtnDisabled] = useState(true);
@@ -14,6 +14,7 @@ const FeedbackForm = () => {
     const { addFeedback, feedbackEdit, updateFeedback } =
         useContext(FeedbackContext);
 
+    // Watch feedbackEdit to see if a new change has been submitted...
     useEffect(() => {
         //when feedbackEdit changes (currently editing)
         if (feedbackEdit.edit === true) {
@@ -25,6 +26,7 @@ const FeedbackForm = () => {
         }
     }, [feedbackEdit]);
 
+    // Handle changes to the input to update applic. states
     const handleChange = (e) => {
         if (text === '') {
             setBtnDisabled(true);
@@ -39,6 +41,7 @@ const FeedbackForm = () => {
         setText(e.target.value);
     };
 
+    // Handles submission of form - adding or modifying a review item
     const handleSubmit = (e) => {
         e.preventDefault();
         if (text.trim().length > 10) {

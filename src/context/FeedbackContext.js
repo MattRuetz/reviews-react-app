@@ -1,6 +1,6 @@
-import { m } from 'framer-motion';
 import { createContext, useState, useEffect } from 'react';
 
+// Context for all list data, and to offer global getters/setters
 const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
@@ -18,14 +18,15 @@ export const FeedbackProvider = ({ children }) => {
         fetchFeedback();
     }, []);
 
+    // Fetch and load data saved in DB
     const fetchFeedback = async () => {
         const response = await fetch('/feedback?_sort=id&_order=desc');
         const data = await response.json();
-        // console.log(data);
         setFeedback(data);
-        setIsLoading(false);
+        setIsLoading(false); // finished loading
     };
 
+    // DELETE request to server - remove a review from DB
     const deleteFeedback = async (id) => {
         if (window.confirm('Are you sure you want to delete this feedback?')) {
             await fetch(`feedback/${id}`, { method: 'DELETE' });
@@ -33,6 +34,7 @@ export const FeedbackProvider = ({ children }) => {
         }
     };
 
+    // POST request to server - add new review to DB
     const addFeedback = async (newFeedback) => {
         const response = await fetch('/feedback', {
             method: 'POST',
@@ -47,6 +49,7 @@ export const FeedbackProvider = ({ children }) => {
         setFeedback([data, ...feedback]);
     };
 
+    // Saves the item on which the edit button was clicked to state
     const editFeedback = (item) => {
         setFeedbackEdit({
             item,
@@ -54,6 +57,7 @@ export const FeedbackProvider = ({ children }) => {
         });
     };
 
+    // PUT request to server - update an item and overwrite in DB
     const updateFeedback = async (id, updatedItem) => {
         const response = await fetch(`/feedback/${id}`, {
             method: 'PUT',
@@ -66,10 +70,13 @@ export const FeedbackProvider = ({ children }) => {
         const data = await response.json();
 
         setFeedback(
-            feedback.map((item) => (item.id === id ? updatedItem : item))
+            feedback.map((item) =>
+                item.id === id ? { ...item, ...data } : item
+            )
         );
     };
 
+    // Context Provider element, with all states and setters
     return (
         <FeedbackContext.Provider
             value={{
